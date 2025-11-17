@@ -56,10 +56,19 @@ export default function Auth() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="relative min-h-screen flex items-center justify-center">
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        src="/login-bg.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+      <div className="absolute inset-0 bg-black/50" />
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-lg shadow-md w-80"
+        className="relative z-10 bg-white/60 backdrop-blur-lg p-8 rounded-xl shadow-2xl border border-white/20 w-96"
       >
         <h2 className="text-xl font-bold mb-4">
           {isSignup ? "Sign Up" : "Login"}
@@ -69,7 +78,7 @@ export default function Auth() {
 
         <input
           type="email"
-          className="border p-2 w-full mb-3 rounded"
+          className="border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -78,7 +87,7 @@ export default function Auth() {
 
         <input
           type="password"
-          className="border p-2 w-full mb-3 rounded"
+          className="border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -88,11 +97,7 @@ export default function Auth() {
         <button
           type="submit"
           disabled={loading}
-          className={`w-full py-2 rounded hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed ${
-            isSignup
-              ? "bg-green-600 text-white hover:bg-green-700"
-              : "bg-blue-600 text-white hover:bg-blue-700"
-          }`}
+          className="bg-gradient-to-r from-pink-500/80 to-blue-500/80 backdrop-blur-sm border border-white/30 text-white w-full py-3 rounded-lg hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition"
         >
           {loading
             ? isSignup
@@ -103,12 +108,12 @@ export default function Auth() {
             : "Login"}
         </button>
 
-        <p className="text-sm mt-2 text-center">
+        <p className="text-sm mt-4 text-center text-gray-600">
           {isSignup ? "Already have an account?" : "Don’t have an account?"}{" "}
           <button
             type="button"
             onClick={() => setIsSignup(!isSignup)}
-            className="text-blue-600 hover:text-blue-800 underline"
+            className="text-blue-600 hover:text-blue-800 active:text-blue-900 font-semibold underline"
           >
             {isSignup ? "Login" : "Sign up"}
           </button>

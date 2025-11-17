@@ -17,11 +17,10 @@ export default function Signup() {
     setLoading(true);
 
     try {
-      // Properly destructure data and error
       const { data, error } = await signup(email, password);
 
       if (error) {
-        // Handle rate limit error specifically
+        
         if (
           error.message.includes("rate limit") ||
           error.message.includes("too many requests")
@@ -33,7 +32,7 @@ export default function Signup() {
           setError(error.message);
         }
       } else if (data?.user) {
-        console.log("Signed up user:", data.user); // check the created user
+        console.log("Signed up user:", data.user); 
         alert("Account created! Check your email for confirmation.");
         navigate("/login");
       } else {
@@ -47,18 +46,29 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="relative min-h-screen flex items-center justify-center">
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        src="/login-bg.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+      <div className="absolute inset-0 bg-black/50" />
       <form
         onSubmit={handleSignup}
-        className="bg-white p-8 rounded-lg shadow-md w-80"
+        className="relative z-10 bg-white/60 backdrop-blur-lg p-8 rounded-xl shadow-2xl border border-white/20 w-96"
       >
-        <h2 className="text-xl font-bold mb-4">Sign Up</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+          Sign Up
+        </h2>
 
-        {error && <p className="text-red-500 mb-2">{error}</p>}
+        {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
 
         <input
           type="email"
-          className="border p-2 w-full mb-3 rounded"
+          className="border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -67,7 +77,7 @@ export default function Signup() {
 
         <input
           type="password"
-          className="border p-2 w-full mb-3 rounded"
+          className="border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -77,14 +87,17 @@ export default function Signup() {
         <button
           type="submit"
           disabled={loading}
-          className="bg-green-600 text-white w-full py-2 rounded hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-gradient-to-r from-pink-500/80 to-blue-500/80 backdrop-blur-sm border border-white/30 text-white w-full py-3 rounded-lg hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition"
         >
           {loading ? "Signing up..." : "Sign Up"}
         </button>
 
-        <p className="text-sm mt-2">
+        <p className="text-sm mt-4 text-center text-gray-600">
           Already have an account?{" "}
-          <Link to="/login" className="text-blue-600 hover:text-blue-800">
+          <Link
+            to="/login"
+            className="text-blue-600 hover:text-blue-800 active:text-blue-900 font-semibold"
+          >
             Login
           </Link>
         </p>

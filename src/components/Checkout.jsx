@@ -37,10 +37,9 @@ export default function Checkout({ cart, closeCheckout, onOrderSuccess }) {
     } else {
       setSuccess(true);
       onOrderSuccess(); // Clear cart in parent
-      // Show success message and redirect to home
+      // Show success message and close checkout without redirecting
       setTimeout(() => {
         closeCheckout();
-        window.location.href = "/"; // Redirect to home page
       }, 2000);
     }
   };
@@ -63,9 +62,7 @@ export default function Checkout({ cart, closeCheckout, onOrderSuccess }) {
             <p className="text-green-600 font-semibold">
               Order placed successfully!
             </p>
-            <p className="text-gray-600 text-sm mt-1">
-              Redirecting to home page...
-            </p>
+            <p className="text-gray-600 text-sm mt-1">Order completed!</p>
           </div>
         )}
 

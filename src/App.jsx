@@ -8,6 +8,8 @@ import Shop from "./pages/Shop";
 import WishList from "./pages/WishList";
 import CartPage from "./pages/CartPage";
 import Auth from "./pages/Auth";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import ContactForm from "./pages/ContactForm";
 import SearchResults from "./pages/SearchResults";
 
@@ -20,6 +22,8 @@ const App = () => {
   return (
     <Routes>
       <Route path="/auth" element={<Auth />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
       <Route
         path="/"
         element={
