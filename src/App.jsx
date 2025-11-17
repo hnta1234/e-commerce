@@ -7,21 +7,19 @@ import ProductDetails from "./components/ProductDetails";
 import Shop from "./pages/Shop";
 import WishList from "./pages/WishList";
 import CartPage from "./pages/CartPage";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import Auth from "./pages/Auth";
 import ContactForm from "./pages/ContactForm";
 import SearchResults from "./pages/SearchResults";
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
-  return user ? children : <Navigate to="/login" />;
+  return user ? children : <Navigate to="/auth" />;
 };
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
+      <Route path="/auth" element={<Auth />} />
       <Route
         path="/"
         element={
