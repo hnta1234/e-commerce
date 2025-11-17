@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaHeart, FaStar, FaRegStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const WishlistGrid = () => {
+const WishListGrid = () => {
   const navigate = useNavigate();
   const [wishlistItems, setWishlistItems] = useState([]);
 
@@ -84,4 +84,4 @@ const WishlistGrid = () => {
   );
 };
 
-export default WishlistGrid;
+export default WishListGrid;

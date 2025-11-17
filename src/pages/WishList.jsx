@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import WishListHeader from "../components/WishListHeader";
-import WishlistGrid from "../components/WishlistGrid";
+import WishListGrid from "../components/WishListGrid";
 
 const WishList = () => {
   const [wishlistItems, setWishlistItems] = useState([]);
@@ -31,7 +31,7 @@ const WishList = () => {
             Your wishlist is empty.
           </p>
         ) : (
-          <WishlistGrid />
+          <WishListGrid />
         )}
       </div>
     </div>

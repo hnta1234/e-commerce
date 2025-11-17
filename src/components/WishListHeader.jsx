@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
-const WishlistHeader = () => {
+const WishListHeader = () => {
   const navigate = useNavigate();
   const [wishlistItems, setWishlistItems] = useState([]);
 
@@ -40,4 +40,4 @@ const WishlistHeader = () => {
   );
 };
 
-export default WishlistHeader;
+export default WishListHeader;
