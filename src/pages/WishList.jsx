@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import WishlistHeader from "../components/WishlistHeader";
+import WishListHeader from "../components/WishListHeader";
 import WishlistGrid from "../components/WishlistGrid";
 
 const WishList = () => {
@@ -21,7 +21,7 @@ const WishList = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <WishlistHeader />
+      <WishListHeader />
 
       <div className="max-w-7xl mx-auto p-6">
         {loading ? (
